@@ -1,38 +1,281 @@
-.App {
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 0.90;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  background-color: #f2f2f2;
+}
+
+.search-button {
+  flex-grow: 0.05;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: #258cd1;
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  
+}
+
+thead {
+  background-color: #3498db;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+table .head:hover {
+  background-color: #3498db;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+table tr:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-button {
+  background-color: transparent;
+  color: #3498db;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease-in-out;
+  border: 1px solid #3498db;
+}
+
+.pagination-button.selected {
+  background-color: #3498db;
+  color: white;
+}
+
+
+.user-profile-form {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  width: 90%;
+  color: #fff; 
+  margin: auto;
+}
+
+.user-profile-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.user-profile-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.8); 
+}
+
+.user-profile-form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-right: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.user-profile-form .cancel-button {
+  background-color: #ccc;
+  color: #333;
+}
+
+.user-profile-form button:hover {
+  background-color: #258cd1;
+}
+
+.user-profile-form .error-message {
+  color: #e74c3c;
+  margin-top: 5px;
+}
+
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search-input {
+    width: 90%;
+    margin-bottom: 10px;
+    margin: auto;
   }
+
+  .search-button {
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+  }
+  table {
+    font-size: 16px; 
+    width: 85%;
+    margin: auto;
+  }
+}
+@media (max-width: 570px) {
+  table {
+    font-size: 13px;
+    width: 100%;
+  }
+  .container {
+    padding: 0;
+    width: 100vw;
+  }
+}
+
+.user-card {
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.user-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333; 
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-details img {
+  max-width: 100px;
+  border-radius: 50%;
+}
+
+.user-details div {
+  flex: 1;
+}
+
+.user-details h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #333; 
+}
+
+.user-details p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #ffffff; 
+}
+
+.user-card button {
+  background-color: #3498db;
+  color: #fff; 
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+.user-card button:hover {
+  background-color: #258cd1; 
 }
